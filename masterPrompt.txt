@@ -1,0 +1,20 @@
+** Create me a cinematic premiere website experience using this next js folder and essentially make it an based on GSAP animations and clean sci fi ui, i want you to use animated SVGs as well in theme of the reference images i have provided in terms of the planet icons and logos. 
+
+** The design should scale well accross all screen sizes.
+
+** There is a narrative folder with images about the Cosmoverse and the planetary system Cosmae's planets, use these images as the data layer for the experience as it contains the whole lore of Astro Mech Character plot, its essentially the grounding data.
+
+** The other ground truth is the webDesignTemplates folder which shows the overall. web design i am going for through out the page, everything should have subtle thoughtful GSAP animations, and include animated SVGs where possible, there is a backgrounds folder where i provided the background images for each webDesignTemplates art, and there is also an isolated AstriMech folder which contains isolated Astro Mech character images to aid in the desing of the hero section and each webDesignTemplate art design.
+
+
+i have a folder with 3D models inside it, i want you to incorporate 3D style pined GSAP animation sections for each of them within generation process similar to [https://thewatch.60fps.fr/](https://thewatch.60fps.fr/) and also to use the image sequences folder for a few scroll based scrub pin image sequence animations as well to give the site the 21st century immersive web design feel, use this webiste as well to get an idea of the feel of the general scroll animations for the information and text based sections of the site in terms of text and SVGS https://dogelonmars.com/ && https://str8fire.io/
+
+
+since this is a next js project here are some git repos you can cosider:
+
+    * https://github.com/greensock/gsap
+
+    * https://github.com/pmndrs/react-three-fiber
+
+    * https://github.com/pmndrs/drei
+

@@ -1,0 +1,22 @@
+{
+  "flyby": {
+    "count": 76,
+    "sourceCount": 151,
+    "path": "/optimized/sequences/flyby"
+  },
+  "disassembly": {
+    "count": 61,
+    "sourceCount": 121,
+    "path": "/optimized/sequences/disassembly"
+  },
+  "discovery": {
+    "count": 61,
+    "sourceCount": 121,
+    "path": "/optimized/sequences/discovery"
+  },
+  "cockpit": {
+    "count": 61,
+    "sourceCount": 120,
+    "path": "/optimized/sequences/cockpit"
+  }
+}
