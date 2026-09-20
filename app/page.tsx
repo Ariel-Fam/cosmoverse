@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,6 +22,37 @@ const names = [
   "Nexarion",
   "Stellaluna",
   "Terraverde",
+];
+
+const musicPlatforms = [
+  {
+    name: "Spotify",
+    href: "https://open.spotify.com/album/6K6HP0OCSjeal5wjzc7KhI?si=MUORhA2QSAmSW2pnOFj4AA",
+    image: "/spotify.png",
+    width: 3000,
+    height: 3000,
+  },
+  {
+    name: "Apple Music",
+    href: "https://music.apple.com/ca/album/astro-mech-0110-html/1785430118",
+    image: "/apple.jpg",
+    width: 3840,
+    height: 2160,
+  },
+  {
+    name: "Tidal",
+    href: "https://tidal.com/album/405345426",
+    image: "/tidal.jpg",
+    width: 720,
+    height: 382,
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/playlist?list=OLAK5uy_lWRTbsNGuMuvtZj0q_BpAygU3mp1EqGDs",
+    image: "/youtube.png",
+    width: 10056,
+    height: 10097,
+  },
 ];
 
 export default function Home() {
@@ -58,27 +90,38 @@ export default function Home() {
         },
       });
       if (!reduced) {
-        if (window.scrollY < (root.current?.querySelector('.hero')?.clientHeight ?? 0)) {
-        const entrance = gsap.timeline({ defaults: { ease: 'power2.out' } });
-        entrance.from(".hero-wordmark", {
-          y: 45,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-        });
-        entrance.from(".hero-portrait", {
-          scale: 1.07,
-          opacity: 0,
-          duration: 1.1,
-          ease: "power2.out",
-        }, 0.1);
-        entrance.from(".hero-copy > *, .mini-system", {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: "power2.out",
-        }, 0.25);
+        if (
+          window.scrollY <
+          (root.current?.querySelector(".hero")?.clientHeight ?? 0)
+        ) {
+          const entrance = gsap.timeline({ defaults: { ease: "power2.out" } });
+          entrance.from(".hero-wordmark", {
+            y: 45,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power3.out",
+          });
+          entrance.from(
+            ".hero-portrait",
+            {
+              scale: 1.07,
+              opacity: 0,
+              duration: 1.1,
+              ease: "power2.out",
+            },
+            0.1,
+          );
+          entrance.from(
+            ".hero-copy > *, .mini-system",
+            {
+              y: 20,
+              opacity: 0,
+              duration: 0.6,
+              stagger: 0.08,
+              ease: "power2.out",
+            },
+            0.25,
+          );
         }
         gsap.to(".hero-portrait img", {
           yPercent: 8,
@@ -100,18 +143,22 @@ export default function Home() {
             scrub: true,
           },
         });
-        gsap.utils
-          .toArray<HTMLElement>(".reveal")
-          .forEach((element) => {
-            if (element.getBoundingClientRect().bottom <= 0) return;
-            gsap.from(element, {
-              y: 20,
-              opacity: 0,
-              duration: 0.65,
-              ease: "power2.out",
-              scrollTrigger: { trigger: element, start: "top 92%", end: "bottom top", once: true, fastScrollEnd: true },
-            });
+        gsap.utils.toArray<HTMLElement>(".reveal").forEach((element) => {
+          if (element.getBoundingClientRect().bottom <= 0) return;
+          gsap.from(element, {
+            y: 20,
+            opacity: 0,
+            duration: 0.65,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 92%",
+              end: "bottom top",
+              once: true,
+              fastScrollEnd: true,
+            },
           });
+        });
         gsap.to(".planet-orbit", {
           rotation: 360,
           transformOrigin: "50% 50%",
@@ -133,7 +180,12 @@ export default function Home() {
                   repeat: -1,
                   yoyo: true,
                   ease: "sine.inOut",
-                  scrollTrigger: { trigger: '.hero', start: 'top bottom', end: 'bottom top', toggleActions: 'play pause resume pause' },
+                  scrollTrigger: {
+                    trigger: ".hero",
+                    start: "top bottom",
+                    end: "bottom top",
+                    toggleActions: "play pause resume pause",
+                  },
                 },
               )
               .totalTime(index * 0.35);
@@ -145,7 +197,12 @@ export default function Home() {
           yoyo: true,
           repeat: -1,
           ease: "sine.inOut",
-          scrollTrigger: { trigger: '#universe', start: 'top bottom', end: 'bottom top', toggleActions: 'play pause resume pause' },
+          scrollTrigger: {
+            trigger: "#universe",
+            start: "top bottom",
+            end: "bottom top",
+            toggleActions: "play pause resume pause",
+          },
         });
       }
     }, root);
@@ -166,12 +223,17 @@ export default function Home() {
       let changed = false;
       for (const entry of entries) {
         const size = `${entry.contentRect.width}:${entry.contentRect.height}`;
-        if (sizes.has(entry.target) && sizes.get(entry.target) !== size) changed = true;
+        if (sizes.has(entry.target) && sizes.get(entry.target) !== size)
+          changed = true;
         sizes.set(entry.target, size);
       }
       if (changed) refresh();
     });
-    root.current?.querySelectorAll('.hero, .album-section, .universe-section, .world-atlas, .site-footer').forEach(element => layout.observe(element));
+    root.current
+      ?.querySelectorAll(
+        ".hero, .album-section, .universe-section, .world-atlas, .site-footer",
+      )
+      .forEach((element) => layout.observe(element));
     refresh();
     document.fonts.ready.then(() => {
       if (alive) refresh();
@@ -348,21 +410,56 @@ export default function Home() {
             </a>
           </div>
         </section>
-        <section id="album" className="album-section" aria-labelledby="album-title">
+
+        <section
+          id="album"
+          className="album-section"
+          aria-labelledby="album-title"
+        >
           <div className="album-heading reveal">
             <p className="eyebrow">ORIGINAL COSMOVERSE SOUNDTRACK / 0110</p>
             <span>07 TRACKS · ARLIE P</span>
           </div>
+
+
           <div className="album-layout">
-            <div className="album-art reveal">
-              <Image
-                src="/AlbumCover.jpg"
-                alt="Astro Mech 0110 album cover featuring Astro Mech in profile"
-                width={800}
-                height={800}
-                sizes="(max-width: 700px) 88vw, 42vw"
-              />
-              <span className="album-catalog">COSMAE AUDIO ARCHIVE / AM-0110</span>
+            <div className="album-media reveal">
+              <div className="album-art">
+                <Image
+                  src="/AlbumCover.jpg"
+                  alt="Astro Mech 0110 album cover featuring Astro Mech in profile"
+                  width={800}
+                  height={800}
+                  sizes="(max-width: 700px) 88vw, 42vw"
+                />
+                <span className="album-catalog">
+                  COSMAE AUDIO ARCHIVE / AM-0110
+                </span>
+              </div>
+              <nav
+                className="album-service-links"
+                aria-label="Listen to Astro Mech 0110 on streaming platforms"
+              >
+                {musicPlatforms.map((platform, index) => (
+                  <a
+                    key={platform.name}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Listen on ${platform.name}`}
+                    style={{ "--wave-index": index } as CSSProperties}
+                  >
+                    <Image
+                      src={platform.image}
+                      alt=""
+                      width={platform.width}
+                      height={platform.height}
+                      sizes="(max-width: 700px) 20vw, 9vw"
+                    />
+                    <span>{platform.name}</span>
+                  </a>
+                ))}
+              </nav>
             </div>
             <div className="album-copy reveal">
               <p className="eyebrow">
@@ -393,7 +490,10 @@ export default function Home() {
                   <dd>ISSUE 0110</dd>
                 </div>
               </dl>
-              <div className="album-links" aria-label="Listen to Astro Mech 0110">
+              <div
+                className="album-links"
+                aria-label="Listen to Astro Mech 0110"
+              >
                 <a
                   className="button primary"
                   href="https://open.spotify.com/album/6K6HP0OCSjeal5wjzc7KhI?si=MUORhA2QSAmSW2pnOFj4AA"
@@ -404,7 +504,7 @@ export default function Home() {
                 </a>
                 <a
                   className="album-platform"
-                  href="https://music.apple.com/ca/artist/arlie-p/1442490102"
+                  href="https://music.apple.com/ca/album/astro-mech-0110-html/1785430118"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -412,7 +512,7 @@ export default function Home() {
                 </a>
                 <a
                   className="album-platform"
-                  href="https://tidal.com/artist/10616752"
+                  href="https://tidal.com/album/405345426"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -420,7 +520,7 @@ export default function Home() {
                 </a>
                 <a
                   className="album-platform"
-                  href="https://www.youtube.com/channel/UCmCDePhXsCmJZ-oD4noX7Gg"
+                  href="https://www.youtube.com/playlist?list=OLAK5uy_lWRTbsNGuMuvtZj0q_BpAygU3mp1EqGDs"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -430,6 +530,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
         <Universe onSelect={chooseWorld} onFilm={() => setFilmOpen(true)} />
         <WorldAtlas selected={selectedWorld} onSelect={setSelectedWorld} />
         <ModelStage kind="astro" />
