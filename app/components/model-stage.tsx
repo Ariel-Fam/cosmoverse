@@ -56,7 +56,10 @@ export default function ModelStage({ kind }: { kind: ModelKind }) {
   return <section id={data.id} ref={root} className={`model-stage model-${kind}`} data-model-state={failed ? "fallback" : ready ? "ready" : "loading"} aria-labelledby={`${data.id}-title`}>
     <div className="model-grid-bg" aria-hidden="true"/><div className="model-watermark" aria-hidden="true">{kind === "astro" ? "0110" : kind === "ark" ? "ARK / 11" : "AMETHYST"}</div>
     <div className="section-heading"><p className="eyebrow">{data.chapter} / {data.label}</p><a href={data.next}>CONTINUE EXPLORING ↘</a></div>
-    <div className="model-layout"><div className="model-copy"><h2 id={`${data.id}-title`}>{data.heading}<br/><em>{data.accent}</em></h2><h3>{data.subtitle}</h3><p>{data.body}</p><a href={data.next} className="button outline">{data.nextLabel} <span>↗</span></a>{kind === "ark" && <a href="/narrative/TheArk%2011.png" target="_blank" rel="noreferrer" className="vessel-journal">ORIGINAL VESSEL DOSSIER ↗</a>}</div>
+    <div className="model-layout"><div className="model-copy"><h2 id={`${data.id}-title`}>{data.heading}<br/><em>{data.accent}</em></h2><h3>{data.subtitle}</h3><p>{data.body}</p><a href={data.next} className="button outline">{data.nextLabel} <span>↗</span></a>{kind === "ark" && <a href="/narrative/TheArk%2011.png" target="_blank" rel="noreferrer" className="vessel-journal">ORIGINAL VESSEL DOSSIER ↗</a>}
+      {kind === "astro" && <a href="https://astro-mech-web.vercel.app/" target="_blank" rel="noreferrer" className="model-site-link">VISIT ASTRO MECH <span>↗</span></a>}
+      {kind === "ark" && <a href="https://www.ark11space.com/" target="_blank" rel="noreferrer" className="model-site-link">PLAY ARK 11 <span>↗</span></a>}
+    </div>
     <div className="model-display"><div className="model-orbit" aria-hidden="true"/><div className="model-orbit orbit-second" aria-hidden="true"/>
       {(!ready || failed) && <Image src={data.fallback} alt={kind==='astro'?'AstroMech exploration suit':kind==='ark'?'Ark 11 spacecraft':'AstroMech discovering exotic material'} fill sizes="(max-width: 800px) 90vw, 55vw" className="model-poster"/>}
       {near && !failed && <ModelViewer kind={kind} progress={progress} registerInvalidate={registerInvalidate} onReady={onReady} onError={onError}/>}

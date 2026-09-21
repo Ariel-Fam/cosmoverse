@@ -231,7 +231,7 @@ export default function Home() {
     });
     root.current
       ?.querySelectorAll(
-        ".hero, .album-section, .universe-section, .world-atlas, .site-footer",
+        ".hero, .album-section, .universe-section, .world-atlas, .short-film-section, .site-footer",
       )
       .forEach((element) => layout.observe(element));
     refresh();
@@ -572,10 +572,61 @@ export default function Home() {
           title="THE NEXT STORY"
           accent="AWAITS."
           description="One explorer. Eight worlds. An endless frontier. Take your place in the Cosmoverse."
-          next="#transmission"
-          nextLabel="THE NEXT CHAPTER"
+          next="#short-film"
+          nextLabel="WATCH THE SHORT FILM"
           compact
         />
+        <section
+          id="short-film"
+          className="short-film-section"
+          aria-labelledby="short-film-title"
+        >
+          <div className="model-grid-bg" aria-hidden="true" />
+          <div className="section-heading reveal">
+            <p className="eyebrow">10 / CINEMATIC TRANSMISSION</p>
+            <a href="#transmission">CONTINUE TO THE FINAL TRANSMISSION ↘</a>
+          </div>
+          <div className="short-film-layout">
+            <div className="short-film-copy reveal">
+              <p className="eyebrow">
+                <span className="short-line" /> AN ASTRO MECH SHORT FILM
+              </p>
+              <h2 id="short-film-title">
+                ENTER THE
+                <br />
+                <em>COSMOVERSE.</em>
+              </h2>
+              <p>
+                Follow Astro Mech beyond the familiar in a cinematic transmission
+                from the CosmoVerse.
+              </p>
+              <a
+                className="button outline"
+                href="https://www.youtube.com/watch?v=L9XE0IFiqaQ&t=1s"
+                target="_blank"
+                rel="noreferrer"
+              >
+                WATCH ON YOUTUBE <span>↗</span>
+              </a>
+            </div>
+            <div className="short-film-player reveal">
+              <div className="film-frame-corner top-left" aria-hidden="true" />
+              <div className="film-frame-corner bottom-right" aria-hidden="true" />
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/L9XE0IFiqaQ?start=1&rel=0"
+                title="Astro Mech short film"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <div className="short-film-status" aria-hidden="true">
+                <span><i /> SIGNAL LOCKED</span>
+                <span>TRANSMISSION / L9XE0IFIQAQ</span>
+              </div>
+            </div>
+          </div>
+        </section>
         <footer id="transmission" className="site-footer">
           <div className="footer-top reveal">
             <OrbitMark />
@@ -625,6 +676,7 @@ export default function Home() {
               ["03", "Astro Mech", "#astromech"],
               ["05", "The Ark 11", "#ark11"],
               ["07", "Amethyst core", "#amethyst"],
+              ["10", "Short film", "#short-film"],
             ].map(([number, title, href]) => (
               <a key={href} href={href} onClick={() => setMenuOpen(false)}>
                 <span>{number}</span>
