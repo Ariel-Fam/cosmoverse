@@ -298,6 +298,124 @@ export default function Home() {
             <span />
           </button>
         </header>
+        <section
+          id="album"
+          className="album-section"
+          aria-labelledby="album-title"
+        >
+          <div className="album-heading reveal">
+            <p className="eyebrow">ORIGINAL COSMOVERSE SOUNDTRACK / 0110</p>
+            <span>07 TRACKS · ARLIE P</span>
+          </div>
+          <div className="album-layout">
+            <div className="album-media reveal">
+              <div className="album-art">
+                <Image
+                  src="/AlbumCover.jpg"
+                  alt="Astro Mech 0110 album cover featuring Astro Mech in profile"
+                  width={800}
+                  height={800}
+                  sizes="(max-width: 700px) 88vw, 42vw"
+                  priority
+                />
+                <span className="album-catalog">
+                  COSMAE AUDIO ARCHIVE / AM-0110
+                </span>
+              </div>
+              <nav
+                className="album-service-links"
+                aria-label="Listen to Astro Mech 0110 on streaming platforms"
+              >
+                {musicPlatforms.map((platform, index) => (
+                  <a
+                    key={platform.name}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Listen on ${platform.name}`}
+                    style={{ "--wave-index": index } as CSSProperties}
+                  >
+                    <Image
+                      src={platform.image}
+                      alt=""
+                      width={platform.width}
+                      height={platform.height}
+                      sizes="(max-width: 700px) 20vw, 9vw"
+                    />
+                    <span>{platform.name}</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+            <div className="album-copy reveal">
+              <p className="eyebrow">
+                <span className="short-line" /> TRANSMISSION IN SEVEN MOVEMENTS
+              </p>
+              <h2 id="album-title">
+                ASTRO_MECH_<em>0110.HTML</em>
+              </h2>
+              <p className="album-lead">
+                The sound of one explorer crossing the CosmoVerse.
+              </p>
+              <p className="album-description">
+                A seven-song journey tracing Astro Mech&apos;s traversal through
+                distant worlds, strange signals, and the spaces between them.
+                Press play and enter the expedition.
+              </p>
+              <dl className="album-metadata">
+                <div>
+                  <dt>ARTIST</dt>
+                  <dd>ARLIE P</dd>
+                </div>
+                <div>
+                  <dt>FORMAT</dt>
+                  <dd>07-TRACK ALBUM</dd>
+                </div>
+                <div>
+                  <dt>ARCHIVE</dt>
+                  <dd>ISSUE 0110</dd>
+                </div>
+              </dl>
+              <div
+                className="album-links"
+                aria-label="Listen to Astro Mech 0110"
+              >
+                <a
+                  className="button primary"
+                  href="https://open.spotify.com/album/6K6HP0OCSjeal5wjzc7KhI?si=MUORhA2QSAmSW2pnOFj4AA"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LISTEN ON SPOTIFY <span>↗</span>
+                </a>
+                <a
+                  className="album-platform"
+                  href="https://music.apple.com/ca/album/astro-mech-0110-html/1785430118"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  APPLE MUSIC <span>↗</span>
+                </a>
+                <a
+                  className="album-platform"
+                  href="https://tidal.com/album/405345426"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  TIDAL <span>↗</span>
+                </a>
+                <a
+                  className="album-platform"
+                  href="https://www.youtube.com/playlist?list=OLAK5uy_lWRTbsNGuMuvtZj0q_BpAygU3mp1EqGDs"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  YOUTUBE <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="hero" aria-labelledby="hero-title">
           <Image
             src="/optimized/backgrounds/CosmoVerseBackgroud.webp"
@@ -410,127 +528,6 @@ export default function Home() {
             </a>
           </div>
         </section>
-
-        <section
-          id="album"
-          className="album-section"
-          aria-labelledby="album-title"
-        >
-          <div className="album-heading reveal">
-            <p className="eyebrow">ORIGINAL COSMOVERSE SOUNDTRACK / 0110</p>
-            <span>07 TRACKS · ARLIE P</span>
-          </div>
-
-
-          <div className="album-layout">
-            <div className="album-media reveal">
-              <div className="album-art">
-                <Image
-                  src="/AlbumCover.jpg"
-                  alt="Astro Mech 0110 album cover featuring Astro Mech in profile"
-                  width={800}
-                  height={800}
-                  sizes="(max-width: 700px) 88vw, 42vw"
-                />
-                <span className="album-catalog">
-                  COSMAE AUDIO ARCHIVE / AM-0110
-                </span>
-              </div>
-              <nav
-                className="album-service-links"
-                aria-label="Listen to Astro Mech 0110 on streaming platforms"
-              >
-                {musicPlatforms.map((platform, index) => (
-                  <a
-                    key={platform.name}
-                    href={platform.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Listen on ${platform.name}`}
-                    style={{ "--wave-index": index } as CSSProperties}
-                  >
-                    <Image
-                      src={platform.image}
-                      alt=""
-                      width={platform.width}
-                      height={platform.height}
-                      sizes="(max-width: 700px) 20vw, 9vw"
-                    />
-                    <span>{platform.name}</span>
-                  </a>
-                ))}
-              </nav>
-            </div>
-            <div className="album-copy reveal">
-              <p className="eyebrow">
-                <span className="short-line" /> TRANSMISSION IN SEVEN MOVEMENTS
-              </p>
-              <h2 id="album-title">
-                ASTRO_MECH_<em>0110.HTML</em>
-              </h2>
-              <p className="album-lead">
-                The sound of one explorer crossing the CosmoVerse.
-              </p>
-              <p className="album-description">
-                A seven-song journey tracing Astro Mech&apos;s traversal through
-                distant worlds, strange signals, and the spaces between them.
-                Press play and enter the expedition.
-              </p>
-              <dl className="album-metadata">
-                <div>
-                  <dt>ARTIST</dt>
-                  <dd>ARLIE P</dd>
-                </div>
-                <div>
-                  <dt>FORMAT</dt>
-                  <dd>07-TRACK ALBUM</dd>
-                </div>
-                <div>
-                  <dt>ARCHIVE</dt>
-                  <dd>ISSUE 0110</dd>
-                </div>
-              </dl>
-              <div
-                className="album-links"
-                aria-label="Listen to Astro Mech 0110"
-              >
-                <a
-                  className="button primary"
-                  href="https://open.spotify.com/album/6K6HP0OCSjeal5wjzc7KhI?si=MUORhA2QSAmSW2pnOFj4AA"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LISTEN ON SPOTIFY <span>↗</span>
-                </a>
-                <a
-                  className="album-platform"
-                  href="https://music.apple.com/ca/album/astro-mech-0110-html/1785430118"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  APPLE MUSIC <span>↗</span>
-                </a>
-                <a
-                  className="album-platform"
-                  href="https://tidal.com/album/405345426"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  TIDAL <span>↗</span>
-                </a>
-                <a
-                  className="album-platform"
-                  href="https://www.youtube.com/playlist?list=OLAK5uy_lWRTbsNGuMuvtZj0q_BpAygU3mp1EqGDs"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  YOUTUBE <span>↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
 
         <Universe onSelect={chooseWorld} onFilm={() => setFilmOpen(true)} />
         <WorldAtlas selected={selectedWorld} onSelect={setSelectedWorld} />
