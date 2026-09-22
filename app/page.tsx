@@ -310,14 +310,22 @@ export default function Home() {
           <div className="album-layout">
             <div className="album-media reveal">
               <div className="album-art">
-                <Image
-                  src="/AlbumCover.jpg"
-                  alt="Astro Mech 0110 album cover featuring Astro Mech in profile"
-                  width={800}
-                  height={800}
-                  sizes="(max-width: 700px) 88vw, 42vw"
-                  priority
-                />
+                <a
+                  className="album-cover-link"
+                  href="https://open.spotify.com/album/6K6HP0OCSjeal5wjzc7KhI?si=MUORhA2QSAmSW2pnOFj4AA"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Listen to Astro Mech 0110 on Spotify"
+                >
+                  <Image
+                    src="/AlbumCover.jpg"
+                    alt="Astro Mech 0110 album cover featuring Astro Mech in profile"
+                    width={800}
+                    height={800}
+                    sizes="(max-width: 700px) 88vw, 42vw"
+                    priority
+                  />
+                </a>
                 <span className="album-catalog">
                   COSMAE AUDIO ARCHIVE / AM-0110
                 </span>

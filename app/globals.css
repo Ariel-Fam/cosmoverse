@@ -531,6 +531,17 @@ img {
   display: block;
   width: 100%;
   height: auto;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+.album-cover-link {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+}
+.album-cover-link:hover img,
+.album-cover-link:focus-visible img {
+  transform: scale(1.018);
+  filter: brightness(1.04);
 }
 .album-service-links {
   display: grid;
